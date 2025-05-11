@@ -20,7 +20,7 @@ namespace BudgetTrackingApp
 
 
             //Hello
-
+            //more
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
