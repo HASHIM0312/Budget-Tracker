@@ -18,6 +18,9 @@ namespace BudgetTrackingApp
                     
                 });
 
+
+            //Hello
+
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
