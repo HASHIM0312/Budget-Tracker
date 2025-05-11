@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             
+        xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts" 
+            
+             
+             x:Class="BudgetTrackingApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout 
+            Padding="20"
+            Spacing="10">
+
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions="Auto,Auto,Auto,Auto,Auto, Auto"
+                  ColumnSpacing="10"
+                  RowSpacing="10">
+
+          
+
+                <!-- Row 0 -->
+                <Label Text="Current Balance"
+                       FontSize="24"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+                
+                
+                <!-- Row 1 -->
+                <Label Text="$X"
+                        FontSize="24"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center" />
+               
+
+                <!-- Row 2 -->
+                <Label Text="Goal:" Grid.Row="2" Grid.Column="0" HorizontalTextAlignment="Center" TextDecorations="Underline"/>
+                <Label Text="Spent" Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="Center" TextDecorations="Underline"/>
+
+                <!-- Row 3 -->
+                <Label Text="{Binding Goal}" Grid.Row="3" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                <Label Text="$Z" Grid.Row="3" Grid.Column="1" HorizontalTextAlignment="Center"/>
+
+                <!-- Row 4 -->
+                <chart:SfCartesianChart
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    HeightRequest="300">
+                    <chart:SfCartesianChart.XAxes>
+                        <chart:NumericalAxis />
+                    </chart:SfCartesianChart.XAxes>
+                    <chart:SfCartesianChart.YAxes>
+                        <chart:NumericalAxis />
+                    </chart:SfCartesianChart.YAxes>
+                    <chart:SfCartesianChart.Series>
+                        <chart:ColumnSeries ItemsSource="{Binding ChartData}" XBindingPath="Month" YBindingPath="Amount" />
+                    </chart:SfCartesianChart.Series>
+                </chart:SfCartesianChart>
+
+                <!-- Row 5 -->
+                <Entry x:Name="GoalEntry" Placeholder="Enter goal amount" Grid.Row="5" Grid.Column="0" />
+                <Button Text="Set Goal"
+        Grid.Row="5"
+        Grid.Column="1"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+       Clicked="OnSetGoalClicked" />
+
+
+
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
