@@ -23,6 +23,7 @@ namespace BudgetTrackingApp
             else
             {
                 Console.WriteLine("Invalid goal amount");
+                
             }
         }
 
