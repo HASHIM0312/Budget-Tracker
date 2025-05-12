@@ -17,7 +17,11 @@ namespace BudgetTrackingApp.Models
             {
                 if (goal != value)
                 {
-                    goal = value;
+                    if (value < 0)
+                    {
+                        throw new ArgumentException("Goal must be positive");
+                    }
+                    goal = decimal.Round(value, 2, MidpointRounding.AwayFromZero); ;
                     OnPropertyChanged(nameof(Goal));
                 }
             }

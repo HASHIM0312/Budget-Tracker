@@ -16,15 +16,22 @@ namespace BudgetTrackingApp
         }
         private void OnSetGoalClicked(object sender, EventArgs e)
         {
-            if (decimal.TryParse(GoalEntry.Text, out decimal goalAmount))
+            try
             {
-                _user.Goal = goalAmount;
+                if (decimal.TryParse(GoalEntry.Text, out decimal goalAmount))
+                {
+                    _user.Goal = goalAmount;
+                }
+                else
+                {
+                    DisplayAlert("Invalid goal", "Goal must be a valid decimal number (ex. 40.00 or 40.25)", "OK");
+                }
+            } catch(ArgumentException ex) 
+            { 
+                DisplayAlert("Invalid goal", ex.Message, "OK");
+            
             }
-            else
-            {
-                Console.WriteLine("Invalid goal amount");
-                
-            }
+           
         }
 
 

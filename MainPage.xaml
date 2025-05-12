@@ -43,7 +43,7 @@
                 <Label Text="Spent" Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="Center" TextDecorations="Underline"/>
 
                 <!-- Row 3 -->
-                <Label Text="{Binding Goal}" Grid.Row="3" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding Goal, StringFormat='${0}'}" Grid.Row="3" Grid.Column="0" HorizontalTextAlignment="Center"/>
                 <Label Text="$Z" Grid.Row="3" Grid.Column="1" HorizontalTextAlignment="Center"/>
 
                 <!-- Row 4 -->
