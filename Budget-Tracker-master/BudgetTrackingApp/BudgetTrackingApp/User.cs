@@ -23,8 +23,7 @@ namespace BudgetTrackingApp.Models
             }
         }
 
-        //Hello 
-        //Hello again
+        
         public BankAccount bankAccount { get; set; }
 
         public string name { get; set; }
@@ -38,12 +37,6 @@ namespace BudgetTrackingApp.Models
             password = password_;
             bankAccount = bankAccount_;
         }
-
-
-
-
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 
