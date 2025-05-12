@@ -6,12 +6,12 @@ namespace BudgetTrackingApp
     {
 
         private User _user;
-        private BankAccount _bankAccount = new BankAccount(1000); // Example initial balance
+       
 
-        public MainPage()
+        public MainPage(User user)
         {
             InitializeComponent();
-            _user = new User("Default", "default@example.com", "password", _bankAccount);
+            _user = user;
             BindingContext = _user;
         }
         private void OnSetGoalClicked(object sender, EventArgs e)

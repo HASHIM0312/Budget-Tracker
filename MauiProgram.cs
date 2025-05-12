@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using BudgetTrackingApp.Models;
+using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
 
 namespace BudgetTrackingApp
@@ -18,11 +19,13 @@ namespace BudgetTrackingApp
                     
                 });
 
+            builder.Services.AddTransient<User>();
+
 
             //Hello
             //more
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BudgetTrackingApp.Models
 {
-    class User : INotifyPropertyChanged
+    public class User : INotifyPropertyChanged
     {
         private decimal goal;
         public decimal Goal
@@ -30,13 +30,13 @@ namespace BudgetTrackingApp.Models
         
         public BankAccount bankAccount { get; set; }
 
-        public string name { get; set; }
+        public string userName { get; set; }
         public string email { get; set; }
         public string password { get; set; }
 
-        public User(string name_, string email_, string password_, BankAccount bankAccount_)
+        public User(string userName_, string email_, string password_, BankAccount bankAccount_)
         {
-            name = name_;
+            userName = userName_;
             email = email_;
             password = password_;
             bankAccount = bankAccount_;

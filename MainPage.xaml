@@ -14,16 +14,24 @@
             Spacing="10">
 
             <Grid ColumnDefinitions="*,*"
-                  RowDefinitions="Auto,Auto,Auto,Auto,Auto, Auto"
+                  RowDefinitions="Auto,Auto,Auto,Auto,Auto, Auto, Auto"
                   ColumnSpacing="10"
                   RowSpacing="10">
 
-          
+                <Label Text="{Binding userName, StringFormat='Hello, {0}!'}" 
+        FontSize="50" 
+        HorizontalOptions="Center" 
+        VerticalOptions="Center" 
+                       TextColor="White"
+        Grid.Row="0"
+                       Margin="10"
+                       Padding="20"
+                       Grid.ColumnSpan="2"/>
 
                 <!-- Row 0 -->
                 <Label Text="Current Balance"
                        FontSize="24"
-                       Grid.Row="0"
+                       Grid.Row="1"
                        Grid.ColumnSpan="2"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center" />
@@ -32,23 +40,23 @@
                 <!-- Row 1 -->
                 <Label Text="$X"
                         FontSize="24"
-                        Grid.Row="1"
+                        Grid.Row="2"
                         Grid.ColumnSpan="2"
                         HorizontalTextAlignment="Center"
                         VerticalTextAlignment="Center" />
                
 
                 <!-- Row 2 -->
-                <Label Text="Goal:" Grid.Row="2" Grid.Column="0" HorizontalTextAlignment="Center" TextDecorations="Underline"/>
-                <Label Text="Spent" Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="Center" TextDecorations="Underline"/>
+                <Label Text="Goal:" Grid.Row="3" Grid.Column="0" HorizontalTextAlignment="Center" TextDecorations="Underline"/>
+                <Label Text="Spent" Grid.Row="3" Grid.Column="1" HorizontalTextAlignment="Center" TextDecorations="Underline"/>
 
                 <!-- Row 3 -->
-                <Label Text="{Binding Goal, StringFormat='${0}'}" Grid.Row="3" Grid.Column="0" HorizontalTextAlignment="Center"/>
-                <Label Text="$Z" Grid.Row="3" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding Goal, StringFormat='${0}'}" Grid.Row="4" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                <Label Text="$Z" Grid.Row="4" Grid.Column="1" HorizontalTextAlignment="Center"/>
 
                 <!-- Row 4 -->
                 <chart:SfCartesianChart
-                    Grid.Row="4"
+                    Grid.Row="5"
                     Grid.ColumnSpan="2"
                     HeightRequest="300">
                     <chart:SfCartesianChart.XAxes>
@@ -63,13 +71,15 @@
                 </chart:SfCartesianChart>
 
                 <!-- Row 5 -->
-                <Entry x:Name="GoalEntry" Placeholder="Enter goal amount" Grid.Row="5" Grid.Column="0" />
+                <Entry x:Name="GoalEntry" Placeholder="Enter goal amount" Grid.Row="6" Grid.Column="0" HorizontalTextAlignment="Center" Margin="10" />
                 <Button Text="Set Goal"
-        Grid.Row="5"
+        Grid.Row="6"
         Grid.Column="1"
-        HorizontalOptions="Center"
+        HorizontalOptions="End"
         VerticalOptions="Center"
-       Clicked="OnSetGoalClicked" />
+       Clicked="OnSetGoalClicked"
+                        Margin="10"
+                        />
 
 
 

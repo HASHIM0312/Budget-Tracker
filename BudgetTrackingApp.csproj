@@ -74,4 +74,16 @@
 		<PackageReference Include="Syncfusion.Maui.Charts" Version="29.1.38" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="LoginPage.xaml.cs">
+	    <DependentUpon>LoginPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
