@@ -7,8 +7,17 @@ using System.Threading.Tasks;
 
 namespace BudgetTrackingApp
 {
+
+
+    /// <summary>
+    /// Represents a bank account for a user.
+    /// With properties for the current balance and amount spent.
+    /// Constructed with an initial balance.
+    /// </summary>
     public class BankAccount
     {
+
+        
         
 
         public int Spent { get; set; } = 0;
