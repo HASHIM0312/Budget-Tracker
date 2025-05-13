@@ -13,6 +13,7 @@ namespace BudgetTrackingApp
             InitializeComponent();
             _user = user;
             BindingContext = _user;
+
         }
         private void OnSetGoalClicked(object sender, EventArgs e)
         {
