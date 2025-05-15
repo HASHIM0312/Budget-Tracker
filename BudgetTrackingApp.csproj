@@ -69,19 +69,42 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\config\config.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Firebase.Auth" Version="1.0.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 		<PackageReference Include="Syncfusion.Maui.Charts" Version="29.1.38" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Content Include="Resources\config\config.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="DepositExpense.xaml.cs">
+	    <DependentUpon>DepositExpense.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="SignUpPage.xaml.cs">
+	    <DependentUpon>SignUpPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="DepositExpense.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="SignUpPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -42,6 +42,14 @@ namespace BudgetTrackingApp.Models
             bankAccount = bankAccount_;
         }
 
+        public User(string email_, string password_, BankAccount bankAccount_)
+        {
+            userName = "Default";
+            email = email_;
+            password = password_;
+            bankAccount = bankAccount_;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)

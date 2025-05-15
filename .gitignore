@@ -16,6 +16,10 @@
 # Mono auto generated files
 mono_crash.*
 
+# Ignore config containing secrets
+config.json
+Resources/Config/config.json
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

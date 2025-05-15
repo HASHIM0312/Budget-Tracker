@@ -1,18 +1,21 @@
-﻿using BudgetTrackingApp.Models;
+﻿using System.Threading.Tasks;
+using BudgetTrackingApp.Models;
 
 namespace BudgetTrackingApp
 {
+   
     public partial class MainPage : ContentPage
     {
 
-        private User _user;
-       
+        private readonly UserState _userState;
 
-        public MainPage(User user)
+
+
+        public MainPage()
         {
             InitializeComponent();
-            _user = user;
-            BindingContext = _user;
+            _userState = Application.Current.Handler.MauiContext.Services.GetService<UserState>();
+            BindingContext = _userState.CurrentUser;
 
         }
         private void OnSetGoalClicked(object sender, EventArgs e)
@@ -21,7 +24,7 @@ namespace BudgetTrackingApp
             {
                 if (decimal.TryParse(GoalEntry.Text, out decimal goalAmount))
                 {
-                    _user.Goal = goalAmount;
+                    _userState.CurrentUser.Goal = goalAmount;
                 }
                 else
                 {
@@ -33,6 +36,20 @@ namespace BudgetTrackingApp
             
             }
            
+        }
+
+        private async void OnSignOutClicked(object sender, EventArgs e)
+        {
+            if (await DisplayAlert("Confirm Sign out?", "This will take you back to Login Page", "OK", "NO"))
+            {
+
+
+                var currentWindow = Application.Current.Windows.FirstOrDefault();
+                if (currentWindow != null)
+                {
+                    currentWindow.Page = new LoginPage();
+                }
+            }
         }
 
 

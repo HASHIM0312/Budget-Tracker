@@ -7,9 +7,18 @@
     Shell.FlyoutBehavior="Flyout"
     Title="BudgetTrackingApp">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:LoginPage}"
-        Route="LoginPage" />
+    
+    <TabBar>
+       
+        <Tab Title="Main" Icon="home.png">
+            <ShellContent
+              ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+
+        <Tab Title="Deposit/Expense" Icon="money.png">
+            <ShellContent
+              ContentTemplate="{DataTemplate local:DepositExpense}"/>
+        </Tab>
+    </TabBar>
 
 </Shell>

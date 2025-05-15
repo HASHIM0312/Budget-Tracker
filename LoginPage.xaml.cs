@@ -11,24 +11,55 @@ namespace BudgetTrackingApp
 
         private async void OnLoginClicked(object sender, EventArgs e)
         {
-            // Retrieve user input
-            string userName = UserNameEntry.Text;
+            
             string email = EmailEntry.Text;
             string password = PasswordEntry.Text;
 
-            // Validate input (basic example)
-            if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            //Validate Input by calling Authentication.ValidateEmailAndPassword
+            if (!Authentication.ValidEmailAndPassword(email, password))
             {
-                await DisplayAlert("Error", "All fields are required.", "OK");
+                await DisplayAlert("Invalid Input", "Please enter a valid email and password.", "OK");
                 return;
             }
 
-            // Create a User object and navigate to MainPage
             var bankAccount = new BankAccount(1000); // Example initial balance
-            var user = new User(userName, email, password, bankAccount);
+            var user = new User(email, password, bankAccount);
 
-            // Navigate to MainPage and pass the user object
-            await Navigation.PushAsync(new MainPage(user));
+
+            // Attempt to authenticate the user
+            if (!await Authentication.AuthenticateUser(user))
+            { 
+                await DisplayAlert("Login Failed", "Incorrect credentials", "OK");
+                return;
+            }
+
+            // Ensure Application.Current is cast to IServiceProvider
+            var userState = Application.Current.Handler.MauiContext.Services.GetService<UserState>();
+             
+            userState.CurrentUser = user;
+
+
+
+            GoToMainPage();
+
         }
+
+        private async void OnNavigateToSignupClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new SignUpPage());
+        }
+
+
+        private void GoToMainPage()
+        {
+            var currentWindow = Application.Current.Windows.FirstOrDefault();
+            if (currentWindow != null)
+            {
+                currentWindow.Page = new AppShell();
+            }
+        }
+
+
+
     }
 }

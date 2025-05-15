@@ -14,7 +14,7 @@
             Spacing="10">
 
             <Grid ColumnDefinitions="*,*"
-                  RowDefinitions="Auto,Auto,Auto,Auto,Auto, Auto, Auto"
+                  RowDefinitions="Auto,Auto,Auto,Auto,Auto, Auto, Auto, Auto"
                   ColumnSpacing="10"
                   RowSpacing="10">
 
@@ -82,8 +82,20 @@
                         />
 
 
+                <Button Text="Sign Out"
+            Grid.Row="7"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="Center"
+            BackgroundColor="Red"
+            TextColor="White"
+            Margin="10,10,10,30"
+                        Clicked="OnSignOutClicked"/>
+                <!-- Increased bottom margin -->
 
             </Grid>
+
+            <!-- Add spacing at the bottom -->
+            
         </VerticalStackLayout>
     </ScrollView>
 

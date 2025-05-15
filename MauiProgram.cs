@@ -20,6 +20,7 @@ namespace BudgetTrackingApp
                 });
 
             builder.Services.AddTransient<User>();
+            builder.Services.AddSingleton<UserState>();
 
 
             //Hello
