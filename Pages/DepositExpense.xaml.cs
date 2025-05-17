@@ -1,6 +1,6 @@
 using BudgetTrackingApp.Models;
 
-namespace BudgetTrackingApp;
+namespace BudgetTrackingApp.Pages;
 
 [QueryProperty(nameof(User), "User")]
 public partial class DepositExpense : ContentPage

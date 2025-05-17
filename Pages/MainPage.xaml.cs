@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using BudgetTrackingApp.Models;
 
-namespace BudgetTrackingApp
+namespace BudgetTrackingApp.Pages
 {
    
     public partial class MainPage : ContentPage

@@ -23,8 +23,14 @@ namespace BudgetTrackingApp
     public class Authentication
     {
 
-       static string apiKey = "";//await LoadFirebaseApiKey(); //Load the API Key from config.json
-        public static async Task<bool> AuthenticateUser(Models.User user)
+       private static string apiKey = "AIzaSyBqozpItJ4JNHEcLEgzTGATCAf39tWcFtc";//await LoadFirebaseApiKey(); //Load the API Key from config.json
+
+        /// <summary>
+        /// Authenticate the user with email and password
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static async Task<bool> LoginUser(Models.User user)
         {
             bool loggedIn = false; // Initialize loggedIn to false
             try
@@ -66,7 +72,13 @@ namespace BudgetTrackingApp
             return loggedIn;
         }
 
-
+        /// <summary>
+        /// Register a new user with email and password 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>
+        /// If the user was registered successfully, return true. Otherwise, return false.
+        /// </returns>
         public static async Task<bool> RegisterUser(Models.User user)
         {
             try

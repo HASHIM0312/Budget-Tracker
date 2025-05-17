@@ -60,15 +60,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AndroidResource Remove="Models\**" />
-	  <Compile Remove="Models\**" />
-	  <EmbeddedResource Remove="Models\**" />
-	  <MauiCss Remove="Models\**" />
-	  <MauiXaml Remove="Models\**" />
-	  <None Remove="Models\**" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <None Remove="Resources\config\config.json" />
 	</ItemGroup>
 
@@ -86,25 +77,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="LoginPage.xaml.cs">
+	  <Compile Update="Pages\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="DepositExpense.xaml.cs">
+	  <Compile Update="Pages\DepositExpense.xaml.cs">
 	    <DependentUpon>DepositExpense.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="SignUpPage.xaml.cs">
+	  <Compile Update="Pages\SignUpPage.xaml.cs">
 	    <DependentUpon>SignUpPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="LoginPage.xaml">
+	  <MauiXaml Update="Pages\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="DepositExpense.xaml">
+	  <MauiXaml Update="Pages\DepositExpense.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="SignUpPage.xaml">
+	  <MauiXaml Update="Pages\SignUpPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

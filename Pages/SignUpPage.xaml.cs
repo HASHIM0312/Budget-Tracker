@@ -1,6 +1,6 @@
 using BudgetTrackingApp.Models;
 
-namespace BudgetTrackingApp;
+namespace BudgetTrackingApp.Pages;
 
 public partial class SignUpPage : ContentPage
 {

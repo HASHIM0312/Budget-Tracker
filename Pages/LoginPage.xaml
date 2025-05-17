@@ -1,22 +1,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BudgetTrackingApp.SignUpPage"
-             Title="Sign Up">
+             x:Class="BudgetTrackingApp.Pages.LoginPage"
+             Title="Login">
     <VerticalStackLayout Padding="20" Spacing="15">
-        <Label Text="Sign Up" FontSize="24" HorizontalOptions="Center" />
+        <Label Text="Login" FontSize="24" HorizontalOptions="Center" />
 
-        <Entry x:Name="UserNameEntry" Placeholder="Enter your username" />
         <Entry x:Name="EmailEntry" Placeholder="Enter your email" Keyboard="Email" />
         <Entry x:Name="PasswordEntry" Placeholder="Enter your password" IsPassword="True" />
-        <Entry x:Name="ConfirmPasswordEntry" Placeholder="Confirm your password" IsPassword="True" />
 
-        <Button Text="Sign Up" Clicked="OnSignUpClicked" />
+        <Button Text="Login" Clicked="OnLoginClicked" />
 
-        <!-- Add navigation to login -->
+        <!-- Add navigation to signup -->
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
-            <Label Text="Already have an account?" VerticalOptions="Center"/>
-            <Button Text="Login" 
-                    Clicked="OnNavigateToLoginClicked"
+            <Label Text="Don't have an account?" VerticalOptions="Center"/>
+            <Button Text="Create new account" 
+                    Clicked="OnNavigateToSignupClicked"
                     BackgroundColor="Transparent"
                     TextColor="{StaticResource Primary}"
                     BorderWidth="0"

@@ -1,4 +1,6 @@
-﻿namespace BudgetTrackingApp
+﻿using BudgetTrackingApp.Pages;
+
+namespace BudgetTrackingApp
 {
     public partial class App : Application
     {

@@ -1,31 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BudgetTrackingApp.Models
 {
-    class User
+    public class User : INotifyPropertyChanged
     {
-        string userName { get; set; }
+        private decimal goal;
+        public decimal Goal
+        {
+            get { return goal; }
+            set
+            {
+                if (goal != value)
+                {
+                    if (value < 0)
+                    {
+                        throw new ArgumentException("Goal must be positive");
+                    }
+                    goal = decimal.Round(value, 2, MidpointRounding.AwayFromZero); ;
+                    OnPropertyChanged(nameof(Goal));
+                }
+            }
+        }
 
+        
+        public BankAccount bankAccount { get; set; }
 
-        string userEmail { get; set; }
+        public string userName { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
 
-        private string userPassword;
-
-
-
-        string userPhoneNumber { get; set; }
-
-        public void User(string userName_, string userEmail_, string userPassword, string userPhoneNumber)
+        public User(string userName_, string email_, string password_, BankAccount bankAccount_)
         {
             userName = userName_;
-            userEmail = userEmail_;
-            userPassword = userPassword;
-            userPhoneNumber = userPhoneNumber;
-
+            email = email_;
+            password = password_;
+            bankAccount = bankAccount_;
         }
+
+        public User(string email_, string password_, BankAccount bankAccount_)
+        {
+            userName = "Default";
+            email = email_;
+            password = password_;
+            bankAccount = bankAccount_;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }

@@ -1,6 +1,6 @@
 using BudgetTrackingApp.Models;
 
-namespace BudgetTrackingApp
+namespace BudgetTrackingApp.Pages
 {
     public partial class LoginPage : ContentPage
     {
@@ -11,6 +11,7 @@ namespace BudgetTrackingApp
 
         private async void OnLoginClicked(object sender, EventArgs e)
         {
+
             
             string email = EmailEntry.Text;
             string password = PasswordEntry.Text;
@@ -27,7 +28,7 @@ namespace BudgetTrackingApp
 
 
             // Attempt to authenticate the user
-            if (!await Authentication.AuthenticateUser(user))
+            if (!await Authentication.LoginUser(user))
             { 
                 await DisplayAlert("Login Failed", "Incorrect credentials", "OK");
                 return;

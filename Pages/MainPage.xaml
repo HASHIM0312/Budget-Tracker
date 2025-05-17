@@ -6,7 +6,7 @@
         xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts" 
             
              
-             x:Class="BudgetTrackingApp.MainPage">
+             x:Class="BudgetTrackingApp.Pages.MainPage">
 
     <ScrollView>
         <VerticalStackLayout 
