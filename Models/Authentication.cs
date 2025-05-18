@@ -54,9 +54,11 @@ namespace BudgetTrackingApp
 
                 loggedIn = true;
 
-                user.userName = auth.User.DisplayName;
+                user.userName = auth.User.DisplayName; //Make the logged in user's userName, the display name that has already been set in Firebase
             }
 
+
+            //Exception handling
             catch (FirebaseAuthException ex)
             {
                 Console.WriteLine($"Firebase auth error: {ex.Reason}");
