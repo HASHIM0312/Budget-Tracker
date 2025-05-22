@@ -1,3 +1,5 @@
+using Amazon;
+using Amazon.DynamoDBv2;
 using BudgetTrackingApp.Models;
 
 namespace BudgetTrackingApp.Pages;
@@ -7,11 +9,28 @@ public partial class DepositExpense : ContentPage
 {
     private readonly UserState _userState;
 
+    
+
     public DepositExpense()
     {
         InitializeComponent();
         _userState = Application.Current.Handler.MauiContext.Services.GetService<UserState>();
-        BindingContext = _userState.CurrentUser; // Use the logged-in user
+        
+       
     }
+
+    public void OnAddDepositClicked(object sender, EventArgs e)
+    {
+
+    }
+
+    public void OnAddExpenseClicked(object sender, EventArgs e)
+    {
+    }
+
+
+
+
+
 
 }

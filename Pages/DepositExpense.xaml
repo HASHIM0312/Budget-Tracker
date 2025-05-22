@@ -3,14 +3,57 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BudgetTrackingApp.Pages.DepositExpense"
              Title="Deposit/Expense">
-    <VerticalStackLayout Spacing="10" Padding="20">
-        <Label 
-            Text="Deposit/Expense Management"
-            SemanticProperties.HeadingLevel="Level1"
-            FontSize="24"
-            HorizontalOptions="Center" />
+    <VerticalStackLayout
+        Padding="20"
+        Spacing="15">
 
-        <!-- Add your deposit/expense UI elements here -->
+        <!-- Buttons row -->
+        <HorizontalStackLayout
+            Spacing="10"
+            HorizontalOptions="Center">
+            <Button
+                Text="Add Deposit"
+                Clicked="OnAddDepositClicked" />
+            <Button
+                Text="Add Expense"
+                Clicked="OnAddExpenseClicked" />
+        </HorizontalStackLayout>
+
+        <!-- Header for the table -->
+        <Grid ColumnDefinitions="2*,1*,2*"
+              Padding="5"
+              BackgroundColor="#eee">
+            <Label Text="Type"
+                   FontAttributes="Bold" />
+            <Label Text="Amount"
+                   FontAttributes="Bold"
+                   Grid.Column="1" />
+            <Label Text="Date"
+                   FontAttributes="Bold"
+                   Grid.Column="2" />
+        </Grid>
+
+        <!-- Transactions list -->
+        <CollectionView
+            ItemsSource="{Binding Transactions}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="2*,1*,2*"
+                          Padding="5"
+                          RowSpacing="2">
+                        <Label Text="{Binding Type}"
+                               VerticalOptions="Center" />
+                        <Label Text="{Binding Amount, StringFormat='{}{0:C}'}"
+                               Grid.Column="1"
+                               VerticalOptions="Center" />
+                        <Label Text="{Binding DateCreated, StringFormat='{}{0:MM/dd/yyyy}'}"
+                               Grid.Column="2"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
     </VerticalStackLayout>
 </ContentPage>

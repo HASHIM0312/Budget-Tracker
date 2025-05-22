@@ -23,7 +23,7 @@ namespace BudgetTrackingApp
     public class Authentication
     {
 
-       private static string apiKey = "";//await LoadFirebaseApiKey(); //Load the API Key from config.json
+       private static string apiKey = "AIzaSyBqozpItJ4JNHEcLEgzTGATCAf39tWcFtc";//await LoadFirebaseApiKey(); //Load the API Key from config.json
 
         /// <summary>
         /// Authenticate the user with email and password
